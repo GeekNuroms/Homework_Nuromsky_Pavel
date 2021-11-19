@@ -27,5 +27,15 @@ def check_number_correction (number: int, correction = CORRECTION_VALUE) -> bool
 cube_list = [number**3 for number in range(1, 1001) if number % 2]
 sum_7 = sum(list(filter(check_number, cube_list)))
 print(sum_7)
-defiled_sum_7 = sum(list(filter(check_number_correction, cube_list)))
-print(defiled_sum_7)# * Решить задачу под пунктом b, не создавая новый список.
+
+###
+sum_modified = 0
+for number in cube_list:
+    modified_number = number + CORRECTION_VALUE
+    if check_number(modified_number) % 7:
+        sum_modified += modified_number
+
+print(sum_modified)
+
+
+
