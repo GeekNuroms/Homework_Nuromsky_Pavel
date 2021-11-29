@@ -20,20 +20,18 @@ adverbs = ["сегодня", "вчера", "завтра", "позавчера",
 adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
 
 
-def make_ultimate_humor(*arg: list) -> list:
-    return [choice(list_number) for list_number in arg]
+def make_ultimate_humor(*arg: list) -> str:
+    return ' '.join([choice(list_number) for list_number in arg])
 
 
-def make_uniq_humor(*arg: list) -> list:
+def make_uniq_humor(*arg: list) -> str:
     for lst in arg:
-        if not lst:
-            return []
         shuffle(lst)
-    return [lst.pop() for lst in arg]
+    return ' '.join([lst.pop() for lst in arg if lst])
 
 
 def get_jokes(humor_count: int, unique_jokes=False, noun_list=nouns, adverb_list=adverbs,
-              adjective_list=adjectives) -> list:
+              adjective_list=adjectives) -> None:
 
     """
     Some descritpion for everyone
@@ -46,7 +44,9 @@ def get_jokes(humor_count: int, unique_jokes=False, noun_list=nouns, adverb_list
     :return:
     """
     usable_func = make_uniq_humor if unique_jokes else make_ultimate_humor
-    print([usable_func(noun_list, adverb_list, adjective_list) for _ in range(humor_count)])
+    result = [usable_func(noun_list, adverb_list, adjective_list) for _ in range(humor_count) if
+              (noun_list and adverb_list and adjective_list)]
+    print(result)
 
 
 get_jokes(10)
