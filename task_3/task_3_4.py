@@ -45,7 +45,16 @@ print(f"{'-'*150}\nСортировка по ключу, уровень имен
 
 
 
+def thesaurus_adv_(*args):
+    s_n_sort = {}
+    for s_n in args:
+        s_n_sort.setdefault(s_n.split()[1][0], {}).setdefault(s_n.split()[0][0], []).append(s_n)
+    return s_n_sort
 
+
+print(thesaurus_adv_("Иван Сергеев", "Инна Серова", "Петр Алексеев",
+                    "Илья Иванов", "Анна Савельева", "Юнона Ветрякова",
+                    "Борис Аркадьев", "Антон Серов", "Павел Анисимов"))
 
 
 

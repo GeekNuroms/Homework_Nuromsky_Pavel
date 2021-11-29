@@ -17,3 +17,16 @@ def thesaurus(*args: str) -> dict:
     print(out_dict)
 
 thesaurus("Иван", "Мария", "Петр", "Илья")
+
+def thesaurus2(*args):
+    main_list = {}
+    for i in sorted(args):
+        if i[0] not in main_list:
+            main_list[i[0]] = list(filter(lambda element: element.startswith(i[:1]), args))
+    print(main_list)
+
+
+thesaurus2('Кармен', 'Андрей', 'Василий', 'Алексей', 'Дмитрий', 'Виктор', 'Инна', 'Александра', 'Игнат', 'Спартак',
+          'Якоб', 'Люция', 'Дионис', 'Агора', 'Игорь')
+
+thesaurus2("Иван", "Мария", "Петр", "Илья")
