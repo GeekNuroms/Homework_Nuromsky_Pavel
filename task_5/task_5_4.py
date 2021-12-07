@@ -5,4 +5,4 @@
 #
 # Подсказка: использовать возможности python, изученные на уроке.
 src = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
-print([value for position, value in enumerate(src) if position != 0 and value > src[position-1]])
+print([value for position, value in enumerate(src[1:]) if value > src[position]])
