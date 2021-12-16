@@ -28,6 +28,3 @@ for root, dirs, local_files in os.walk(root_dir):
 print(size_dict)
 size_dict = {key: (val[0], list(val[1])) for key, val in size_dict.items()}
 print(size_dict)#зачем так непонятно
-with open('summary.json', 'w', encoding='utf-8') as file:
-    data = json.dump(size_dict, file)
-    
