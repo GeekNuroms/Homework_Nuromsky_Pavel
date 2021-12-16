@@ -10,7 +10,7 @@
 
 import os
 import django
-
+import json
 
 def mod_size(i):
     return 10**len("%i" % i)
@@ -28,7 +28,3 @@ for root, dirs, local_files in os.walk(root_dir):
 print(size_dict)
 size_dict = {key: (val[0], list(val[1])) for key, val in size_dict.items()}
 print(size_dict)#зачем так непонятно
-import json
-with open('summary.json', 'w', encoding='utf-8') as file:
-    data = json.dump(size_dict, file)
-
